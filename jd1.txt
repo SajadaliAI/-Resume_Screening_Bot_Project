@@ -1,0 +1,18 @@
+Job Title: Data Scientist
+
+Company: ABC Analytics
+
+We are looking for a Data Scientist who is passionate about turning data into actionable insights.
+The candidate should have strong experience in machine learning, data analysis, and NLP techniques.
+
+Responsibilities:
+- Develop predictive models using Python and ML libraries.
+- Work with large datasets using Pandas, NumPy, and SQL.
+- Apply NLP for sentiment analysis and classification tasks.
+- Create reports using Tableau or Power BI.
+
+Requirements:
+- Proficiency in Python, Scikit-learn, TensorFlow
+- Experience in SQL and data visualization tools
+- Strong understanding of NLP and Text Processing
+- Bachelor's degree in Computer Science or related field

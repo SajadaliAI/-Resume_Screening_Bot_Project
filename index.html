@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Screening Bot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+            text-align: center;
+            padding: 50px 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #1f3c88;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            display: inline-block;
+            max-width: 700px;
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            resize: none;
+            font-size: 1em;
+        }
+
+        input[type=file] {
+            margin: 20px 0;
+            font-size: 1em;
+        }
+
+        input[type=submit] {
+            background-color: #1f3c88;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        input[type=submit]:hover {
+            background-color: #3751a3;
+        }
+
+        table {
+            margin: 30px auto;
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 900px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border-bottom: 1px solid #eee;
+            padding: 12px 20px;
+            text-align: left;
+            font-size: 1em;
+        }
+
+        th {
+            background-color: #1f3c88;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        tr:hover {
+            background-color: #f1f5fb;
+        }
+
+        .download {
+            margin: 25px;
+        }
+
+        .download a {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .download a:hover {
+            background-color: #218838;
+        }
+
+        @media(max-width: 768px){
+            table, th, td {
+                font-size: 0.9em;
+            }
+            form {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Resume Screening Bot</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label>Upload Resumes (PDF/DOCX, multiple allowed):</label><br>
+        <input type="file" name="resumes" multiple required><br>
+        <label>Paste Job Description:</label><br>
+        <textarea name="job_description" placeholder="Enter job description here..." required></textarea><br>
+        <input type="submit" value="Screen Resumes">
+    </form>
+
+    {% if results %}
+    <h2>Resume Ranking (BERT Similarity)</h2>
+    <table>
+        <tr><th>Rank</th><th>Resume</th><th>TF-IDF Score</th><th>BERT Score</th></tr>
+        {% for res in results %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ res[0] }}</td>
+            <td>{{ "%.4f"|format(res[1]) }}</td>
+            <td>{{ "%.4f"|format(res[2]) }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="download">
+        <a href="/download">Download Excel</a>
+    </div>
+    {% endif %}
+</body>
+</html>

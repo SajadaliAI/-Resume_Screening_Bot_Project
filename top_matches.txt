@@ -1,0 +1,10 @@
+1. resume1.docx - Resume Match based on Job Description: 47.96%
+2. resume3.docx - Resume Match based on Job Description: 19.80%
+3. resume4.docx - Resume Match based on Job Description: 16.42%
+4. resume9.pdf - Resume Match based on Job Description: 8.41%
+5. resume8.pdf - Resume Match based on Job Description: 4.61%
+6. resume2.docx - Resume Match based on Job Description: 4.38%
+7. resume10.pdf - Resume Match based on Job Description: 1.82%
+8. resume5.docx - Resume Match based on Job Description: 1.54%
+9. resume7.pdf - Resume Match based on Job Description: 0.45%
+10. resume6.pdf - Resume Match based on Job Description: 0.38%
